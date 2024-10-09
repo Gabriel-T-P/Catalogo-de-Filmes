@@ -1,0 +1,15 @@
+<h1>Home</h1>
+
+<h3>Gêneros de filmes cadastrados:</h3>
+<% @movie_genres.each do | movie_genre | %>
+
+  <%= link_to movie_genre.name, movie_genre_path(movie_genre) %>
+  <br>
+
+<% end %>
+
+<h3>Diretores de filmes cadastrados:</h3>
+
+
+<h3>Filmes cadastrados:</h3>
+
