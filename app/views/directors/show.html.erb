@@ -1,0 +1,15 @@
+<h1>Mais informações sobre o diretor <%= @director.name %> </h1>
+
+<div>
+  Gênero de filme favorito: <%= @favorite_genre.name %>
+</div>
+
+<div>
+  Data de Nascimento: <%= @director.birth_date %>
+</div>
+
+<div>
+  Nacionalidade: <%= @director.nationality %>
+</div>
+
+<%= link_to "<button>Editar</button>".html_safe, edit_director_path(@director.id) %>

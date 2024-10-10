@@ -9,7 +9,8 @@ class MovieGenresController < ApplicationController
   end
 
   def create
-    @movie_genre = MovieGenre.new(name: params[:movie_genre][:name])
+    movie_genre_params = params.require(:movie_genre).permit(:name)
+    @movie_genre = MovieGenre.new(movie_genre_params)
 
     if @movie_genre.save
       redirect_to @movie_genre
@@ -24,27 +25,15 @@ class MovieGenresController < ApplicationController
   end
   
   def update
+    movie_genre_params = params.require(:movie_genre).permit(:name)
     @movie_genre = MovieGenre.find(params[:id])
 
-      if @movie_genre.update(name: params[:movie_genre][:name])
+      if @movie_genre.update(movie_genre_params)
         redirect_to @movie_genre
       else
         render :edit
       end
 
   end
-
-  def destroy
-    @movie_genre = MovieGenre.find(params[:id])
-
-    if @movie_genre.destroy
-      redirect_to root_path
-    else
-      redirect_to movie_genres_path(params[:id])
-    end
-
-  end
-  
-  
 
 end

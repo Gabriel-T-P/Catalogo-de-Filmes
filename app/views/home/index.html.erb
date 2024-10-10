@@ -9,6 +9,12 @@
 <% end %>
 
 <h3>Diretores de filmes cadastrados:</h3>
+<% @directors.each do | director | %>
+
+  <%= link_to director.name, director_path(director) %>
+  <br>
+
+<% end %>
 
 
 <h3>Filmes cadastrados:</h3>

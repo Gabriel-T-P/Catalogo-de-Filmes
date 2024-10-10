@@ -22,8 +22,13 @@
       <ul>
         <li> <%= link_to "Home", root_path %> </li>
         <li> <%= link_to "Cadastrar Gênero", new_movie_genre_path %> </li>
+        <li> <%= link_to "Cadastrar Diretor", new_director_path %> </li>
       </ul> 
     </nav>
+
+    <div>
+      <p> <%= flash[:notice] %> </p>
+    </div>
 
     <%= yield %>
   </body>

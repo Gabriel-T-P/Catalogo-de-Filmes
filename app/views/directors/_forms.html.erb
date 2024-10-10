@@ -1,0 +1,27 @@
+<%= form_with model: director do | f | %>
+
+  <div>
+    <%= f.label :name, "Nome" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :nationality, "Nacionalidade" %>
+    <%= f.text_field :nationality %>
+  </div>
+
+  <div>
+    <%= f.label :birth_date, "Data de Nascimento" %>
+    <%= f.date_field :birth_date %>
+  </div>
+
+  <div>
+    <%= f.label :movie_genre_id, "Gênero Favorito" %>
+    <%= f.collection_select :movie_genre_id, MovieGenre.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.submit "Enviar", disable_with: 'Enviando...' %>
+  </div>
+
+<% end %>
