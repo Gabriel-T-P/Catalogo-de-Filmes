@@ -1,4 +1,8 @@
 <h1>Mais informações sobre o gênero <%= @movie_genre.name.downcase %></h1>
-<br>
-
 <%= link_to "<button>Editar</button>".html_safe, edit_movie_genre_path(@movie_genre.id) %>
+<br>
+<h3>Filmes relacionados ao gênero:</h3>
+
+<% @movies_by_genre.each do |movie| %>
+  <%=movie.title%> <br>
+<% end %>

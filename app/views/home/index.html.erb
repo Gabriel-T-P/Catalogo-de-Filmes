@@ -1,4 +1,4 @@
-<h1>Home</h1>
+<h1>O Catálogo de Filmes</h1>
 
 <h3>Gêneros de filmes cadastrados:</h3>
 <% @movie_genres.each do | movie_genre | %>
@@ -20,7 +20,8 @@
 <h3>Filmes cadastrados:</h3>
 <% @movies.each do | movie | %>
 
-  <%= link_to movie.title, movie %>
+  <%= link_to movie.title, movie %> -
+  Lançado em: <%= movie.release_year %>
   <br>
 
 <% end %>
