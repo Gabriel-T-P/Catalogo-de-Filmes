@@ -1,0 +1,16 @@
+<h1>Mais informações sobre o filme <%=@movie.title%> </h1>
+
+<dl>
+  <dt>Ano de Lançamento:</dt>
+  <dd><%=@movie.release_year%></dd>
+  <dt>País de Origem:</dt>
+  <dd><%=@movie.origin_country%></dd>
+  <dt>Duração:</dt>
+  <dd><%=@movie.duration%> minutos</dd>
+  <dt>Diretor Principal:</dt>
+  <dd><%=@movie.director.name%></dd>
+  <dt>Gênero do Filme:</dt>
+  <dd><%=@movie.movie_genre.name%></dd>
+</dl>
+
+<%= link_to "Editar", edit_movie_path %>
