@@ -13,3 +13,11 @@
 </div>
 
 <%= link_to "<button>Editar</button>".html_safe, edit_director_path(@director.id) %>
+
+<h3>Filmes dirigidos por este diretor</h3>
+
+<% @movies_by_director.each do |movie|%>
+
+  <%=movie.title%> <br>
+
+<% end %>

@@ -3,6 +3,7 @@ class DirectorsController < ApplicationController
   def show
     @director = Director.find(params[:id])
     @favorite_genre = MovieGenre.find(@director.movie_genre_id)
+    @movies_by_director = Movie.where("director_id = ?", params[:id])
   end
 
   def new
