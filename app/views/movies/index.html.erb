@@ -1,0 +1,9 @@
+<h1>Todos os filmes com Status: <%= @params %> </h1>
+
+<% @movies.each do | movie | %>
+
+  <%= link_to movie.title, movie %> -
+  Data de Lançamento: <%= movie.release_year %>
+  <br>
+
+<% end %>

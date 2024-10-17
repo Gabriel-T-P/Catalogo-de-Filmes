@@ -1,5 +1,19 @@
 class MoviesController < ApplicationController
 
+  def index
+    if params[:status] == 'to_be_published'
+      @movies = Movie.to_be_published
+      @params = 'A Ser Lançado'
+    elsif params[:status] == 'published'
+      @movies = Movie.published
+      @params = 'Lançado'
+    else
+      @movies = Movie.draft
+      @params = 'Rascunho'
+    end
+  end
+  
+
   def new
     @movie = Movie.new
     @directors = Director.all
@@ -17,7 +31,7 @@ class MoviesController < ApplicationController
   end
   
   def update
-    movie_params = params.require(:movie).permit( :title, :synopsis, :release_year, :origin_country, :duration, :director_id, :movie_genre_id)
+    movie_params = params.require(:movie).permit( :title, :synopsis, :release_year, :origin_country, :duration, :director_id, :movie_genre_id, :status)
     @movie = Movie.find(params[:id])
 
       if @movie.update(movie_params)
@@ -32,7 +46,7 @@ class MoviesController < ApplicationController
   end
   
   def create
-    movie_params = params.require(:movie).permit( :title, :synopsis, :release_year, :origin_country, :duration, :director_id, :movie_genre_id)
+    movie_params = params.require(:movie).permit( :title, :synopsis, :release_year, :origin_country, :duration, :director_id, :movie_genre_id, :status)
     @movie = Movie.new(movie_params)
 
     if @movie.save

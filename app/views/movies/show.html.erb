@@ -11,6 +11,8 @@
   <dd><%=@movie.director.name%></dd>
   <dt>Gênero do Filme:</dt>
   <dd><%=@movie.movie_genre.name%></dd>
+  <dt>Status do Filme:</dt>
+  <dd><%= I18n.t(@movie.status) %></dd>
 </dl>
 
 <%= link_to "Editar", edit_movie_path %>

@@ -1,6 +1,6 @@
 <h1>O Catálogo de Filmes</h1>
 
-<h3>Gêneros de filmes cadastrados:</h3>
+<h3>Gêneros de filmes Cadastrados:</h3>
 <% @movie_genres.each do | movie_genre | %>
 
   <%= link_to movie_genre.name, movie_genre %>
@@ -8,7 +8,7 @@
 
 <% end %>
 
-<h3>Diretores de filmes cadastrados:</h3>
+<h3>Diretores de filmes Cadastrados:</h3>
 <% @directors.each do | director | %>
 
   <%= link_to director.name, director %>
@@ -16,12 +16,22 @@
 
 <% end %>
 
+<div>
+  <h3>Todos os Filmes Cadastrados:</h3>
 
-<h3>Filmes cadastrados:</h3>
-<% @movies.each do | movie | %>
+  <ul>
+    <li><%= link_to "Filmes Lançados", movies_path(status: 'published') %></li>
+    <li><%= link_to "Filmes a Serem Lançados", movies_path(status: 'to_be_published') %></li>
+    <li><%= link_to "Rascunhos", movies_path(status: 'draft') %></li>
+  </ul>
 
-  <%= link_to movie.title, movie %> -
-  Lançado em: <%= movie.release_year %>
-  <br>
+  <% @movies.each do | movie | %>
 
-<% end %>
+    <% unless movie.draft? %>
+      <%= link_to movie.title, movie %> -
+      Data de Lançamento: <%= movie.release_year %>
+      <br>
+    <% end %>
+
+  <% end %>
+</div>

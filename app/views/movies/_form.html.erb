@@ -35,6 +35,11 @@
     <%= f.collection_select :movie_genre_id, @movie_genres, :id, :name %>
   </div>
 
+  <div>
+    <%= f.label :status, "Status:" %>
+    <%= f.select :status, Movie.statuses.keys.map { |status| [I18n.t(status), status] }%>
+  </div>
+
   <%= f.submit "Enviar", disable_with: 'Enviando...'%>
 
 <% end %>
