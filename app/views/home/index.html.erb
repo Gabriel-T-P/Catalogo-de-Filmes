@@ -28,6 +28,11 @@
   <% @movies.each do | movie | %>
 
     <% unless movie.draft? %>
+      <div>
+        <% if movie.poster.attached? %>
+          <%= image_tag movie.poster %>
+        <% end %>
+      </div>
       <%= link_to movie.title, movie %> -
       Data de Lançamento: <%= movie.release_year %>
       <br>
